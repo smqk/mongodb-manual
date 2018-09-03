@@ -1,7 +1,5 @@
 MongoDB 索引简介
 
-[TOC]
-
 在MongoDB中索引支持使得执行查询更高效。 如果没有索引，MongoDB必须执行集合扫描，即扫描集合中的每个文档，以选择与查询语句匹配的文档。如果查询存在适当的索引，MongoDB可以使用索引来限制它必须检查的文档数。
 
 索引是特殊的数据结构[1]，它以易于遍历的形式存储集合数据集的一小部分。 索引存储特定字段或字段集的值，按字段值排序。 索引条目的排序支持有效的等式匹配和基于范围的查询操作。 此外，MongoDB可以使用索引中的顺序返回排序结果。
@@ -223,11 +221,13 @@ MongoDB 可以使用索引的交集实现查询。对于复合查询，如果一
 
 
 
+## 附录
+
 译自(4.0版)：https://docs.mongodb.com/manual/indexes/ 
 
+个人博客： [学习园](www.xuexiyuan.cn?from=github)
 
-
-
+![MongoDB学习园](./images/wechat_mongodb_xuexiyuan.png)
 
 
 
