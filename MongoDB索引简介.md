@@ -223,9 +223,9 @@ MongoDB 可以使用索引的交集实现查询。对于复合查询，如果一
 
 ## 附录
 
-译自(4.0版)：https://docs.mongodb.com/manual/indexes/ 
+译自(4.0版)：https://docs.mongodb.com/manual/indexes/
 
-个人博客： [学习园](www.xuexiyuan.cn?from=github)
+个人博客： [学习园](http://www.xuexiyuan.cn?from=github)
 
 ![MongoDB学习园](./images/wechat_mongodb_xuexiyuan.png)
 
