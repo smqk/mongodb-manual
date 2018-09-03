@@ -22,7 +22,7 @@ QQ: 961302305
 
 作者微信：
 
-![](/home/smqk/文档/学习笔记/mongodb-manual/images/wechat_contact_author.jpg)
+![作者微信](./images/wechat_contact_author.jpg)
 
 微信公众号：
 
