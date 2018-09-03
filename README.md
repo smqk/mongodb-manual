@@ -1,14 +1,17 @@
-MongoDB 4.0 手册
+# MongoDB 4.0 中文手册
+
+# 目录
+
+- [MongoDB 索引](https://github.com/smqk/mongodb-manual/blob/master/MongoDB%E7%B4%A2%E5%BC%95.md)
+- [分析查询性能](https://github.com/smqk/mongodb-manual/blob/master/%E5%88%86%E6%9E%90%E6%9F%A5%E8%AF%A2%E6%80%A7%E8%83%BD.md)
+
+
 
 
 
 文章均翻译自官网手册： [The MongoDB 4.0 Manual](https://docs.mongodb.com/manual/)
 
-
-
 英语能力有限，如有错误，还望不惜指正，谢谢～
-
-
 
 ------
 
