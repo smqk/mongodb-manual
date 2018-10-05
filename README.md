@@ -4,6 +4,8 @@
 
 - [MongoDB 索引](https://github.com/smqk/mongodb-manual/blob/master/MongoDB%E7%B4%A2%E5%BC%95.md)
 - [分析查询性能](https://github.com/smqk/mongodb-manual/blob/master/%E5%88%86%E6%9E%90%E6%9F%A5%E8%AF%A2%E6%80%A7%E8%83%BD.md)
+- [批量操作](https://github.com/smqk/mongodb-manual/blob/master/%E6%89%B9%E9%87%8F%E6%93%8D%E4%BD%9C%EF%BC%88bulkWrite%EF%BC%89.md)
+- [查询计划](https://github.com/smqk/mongodb-manual/blob/master/%E6%9F%A5%E8%AF%A2%E8%AE%A1%E5%88%92%EF%BC%88Query%20Plans%EF%BC%89.md)
 
 
 
@@ -21,7 +23,7 @@
 
 QQ: 961302305
 
-个人博客： [学习园](http://www.xuexiyuan.cn?from=github)
+个人博客： [学习园 www.xuexiyuan.cn](http://www.xuexiyuan.cn?from=github)
 
 作者微信：
 
