@@ -1,3 +1,5 @@
+
+
 # 批量操作（bulkWrite）
 
 ## 定义
@@ -21,7 +23,7 @@ db.collection.bulkWrite(
 | 参数           | 类型     | 描述                                                         |
 | -------------- | -------- | ------------------------------------------------------------ |
 | **operations** | array    | bulkWrite() 写操作的数组。支持操作：insertOne、updateOne、updateMany、deleteOne、deleteMany、replaceOne |
-| iteConcern**   | document | 可选， [write concern](https://docs.mongodb.com/v3.4/reference/write-concern/) 文档，省略则使用默认的 write concern。 |
+| **writeConcern**   | document | 可选， [write concern](https://docs.mongodb.com/v3.4/reference/write-concern/) 文档，省略则使用默认的 write concern。 |
 | **ordered**    | boolean  | 可选，表示mongod实例有序还是无序执行操作。默认值true。       |
 
 方法返回值：
