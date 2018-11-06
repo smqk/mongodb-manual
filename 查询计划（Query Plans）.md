@@ -28,7 +28,7 @@
 
 mongod 重启或关闭计划缓存（会丢失）将不会被留存。
 
-新版本2.6中：MongoDB 提供 [查询计划缓存方法](https://docs.mongodb.com/v3.4/reference/method/js-plan-cache/)显示及修改已缓存的计划。 [PlanCache.clear()](https://docs.mongodb.com/v3.4/reference/method/PlanCache.clear/#PlanCache.clear) 方法刷新所有的计划缓存。用户也可以使用 [PlanCache.clearPlansByQuery()](https://docs.mongodb.com/v3.4/reference/method/PlanCache.clearPlansByQuery/#PlanCache.clearPlansByQuery)清除指定的计划缓存
+新版本2.6中：MongoDB 提供 [查询计划缓存方法](https://docs.mongodb.com/v3.4/reference/method/js-plan-cache/)显示及修改已缓存的计划。 [PlanCache.clear()](https://docs.mongodb.com/v3.4/reference/method/PlanCache.clear/#PlanCache.clear) 方法刷新所有的计划缓存。用户也可以使用 [PlanCache.clearPlansByQuery()](https://docs.mongodb.com/v3.4/reference/method/PlanCache.clearPlansByQuery/#PlanCache.clearPlansByQuery) 清除指定的计划缓存
 
 
 
@@ -42,7 +42,7 @@ mongod 重启或关闭计划缓存（会丢失）将不会被留存。
 
 索引过滤器在服务器进程的持续时间内存在，并且在关闭后不会保留。 MongoDB还提供了手动删除过滤器的命令。
 
-由于索引过滤器会覆盖优化程序的预期行为以及hint() 方法，因此请谨慎使用索引筛选器。
+由于索引过滤器会覆盖优化程序的预期行为以及hint() 方法，因此请谨慎使用索引过滤器。
 
 
 
