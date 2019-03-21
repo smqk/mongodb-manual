@@ -1,6 +1,6 @@
-MongoDB 提供 db.collection.explain(),  cursort.explain() 及 explain 命令返回查询计划及查询计划执行统计信息。
+MongoDB 提供 db.collection.explain(),  cursort.explain() 及 explain 命令获取查询计划及查询计划执行统计信息。
 
-expalin 结果将查询计划呈现为阶段树。 每个阶段将其结果（文档或索引键）传递给父节点。 叶节点访问集合或索引。 内部节点操纵由子节点产生的文档或索引键。 根节点是MongoDB从中派生结果集的最后阶段。
+explain 结果将查询计划以阶段树的形式呈现。 每个阶段将其结果（文档或索引键）传递给父节点。 叶节点访问集合或索引。 中间节点操纵由子节点产生的文档或索引键。 根节点是MongoDB从中派生结果集的最后阶段。
 
 阶段操作描述,例：
 
@@ -22,11 +22,11 @@ expalin 结果将查询计划呈现为阶段树。 每个阶段将其结果（�
 
 
 
-##  explain 操作返回结果
+##  explain 操作返回结果详解
 
 ### queryPlanner
 
-queryPlanner 信息显示的是被查询优化器选择出来的查询计划。
+queryPlanner 显示的是被查询优化器选择出来的查询计划。
 
 以下未分片集合 explain 操作结果如下：
 
@@ -132,7 +132,7 @@ db.products.explain("allPlansExecution").update(
 }
 ```
 
-- executionStats  描述获胜计划完整的查询执行统计信息。 对于写入操作，是指将要执行修改的统计信息，但不会真实修改数据库。
+- executionStats  描述获胜计划完整的查询执行信息。 对于写入操作，是指将要执行修改的信息，但不会真实修改数据库。
   - executionStats.nReturned  查询条件匹配到的文档数量。
   - executionStats.executionTimeMillis  查询计划选择和查询执行所需的总时间（以毫秒为单位）。executionTimeMillis 对应于早期版本的MongoDB中cursor.explain() 返回的millis字段。
   - executionStats.totalKeysExamined  扫描的索引条目数。totalKeysExamined 对应于早期版本的MongoDB中cursor.explain() 返回的 nscanned字段。
@@ -190,7 +190,7 @@ db.products.explain("allPlansExecution").update(
 
 
 
-### Sharded Collection
+## Sharded Collection
 
 对于分片集合，explain在shards字段中返回每个访问的分片的核心查询规划器和服务器信息：
 
@@ -254,6 +254,8 @@ explain 结果的格式和字段与以前的版本相比有所变化。 以下�
 在早期版本的MongoDB中，cursor.explain() 返回了光标字段，其值为：
 
 用于集合扫描的BasicCursor，以及索引扫描的BtreeCursor <索引名称> [<方向>]。
+
+
 
 
 ### 覆盖查询
