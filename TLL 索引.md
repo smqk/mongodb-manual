@@ -56,7 +56,7 @@ db.runCommand( { collMod: "eventlog",
 - _id 字段不支持减  TTL 索引。
 -  不能在固定集合上创建 TTL 索引，因为固定集合不支持删除操作。
 - 不能使用 createIndex() 去修改一个已存在索引的 expireAfterSeconds 。相反，可以使用collMod 命令来修改。否则,改变现有索引的选项的值,你必须删除索引,重新创建。
-- 如果一个非TTL单字段索引字段已经存在,您不能再创建一个同字段的TTL索引,因为不能创建相同键不同选项的多个索引。改变非TTL单字段索引成TTL索引,首先你必须先删除索引再现expireAfterSeconds选项创建索引。
+- 如果一个非TTL单字段索引字段已经存在,您不能再创建一个同字段的TTL索引,因为不能创建相同键不同选项的多个索引。改变非TTL单字段索引成TTL索引,首先你必须先删除索引再设置expireAfterSeconds选项创建索引。
 
 
 
