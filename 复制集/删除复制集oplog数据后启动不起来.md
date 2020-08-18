@@ -2,7 +2,7 @@
 
 28001.conf
 
-```
+```properties
 port=28001
 bind_ip= 127.0.0.1
 logpath=/usr/local/mongodb/log/28001.log
@@ -17,7 +17,7 @@ replSet=SMQK
 
 28002.conf
 
-```
+```properties
 port=28002
 bind_ip= 127.0.0.1
 logpath=/usr/local/mongodb/log/28002.log
@@ -32,7 +32,7 @@ replSet=SMQK
 
 28003.conf
 
-```
+```properties
 port=28003
 bind_ip= 127.0.0.1
 logpath=/usr/local/mongodb/log/28003.log
@@ -53,7 +53,7 @@ replSet=SMQK
 mongo 127.0.0.1:28001
 不指定数据库默认进入 test 数据库
 
-```
+```javascript
 // 注意  _id 必须时 配置文件中的  replSet 值
 mongo 127.0.0.1:28001/admin
 config = {
@@ -73,7 +73,7 @@ rs.initiate(config)
 
 Arbiter 仲裁
 
-```
+```javascript
 // 不开启的话无法读取从节点的数据
 rs.slaveOK(true)
 ```

@@ -1,6 +1,4 @@
-
-
-### save 命令
+# save 命令
 
 ```javascript
 db.collection.save(
