@@ -80,6 +80,15 @@ make
 
 > 其中 mongo-2020-04-21 是 db 文件的目录，`collection-10--749927511012856183.wt`就是需要恢复的wt文件
 
+```bash
+# 如果找不到 ./ext/compressors/snappy/.libs/libwiredtiger_snappy.so 机器上安装过程序那对应就是如下路径
+wt -v -h /home/smqk/data/db -C "extensions=[/usr/local/lib/libwiredtiger_snappy.so]" -R salvage collection-0--1488534289795746278
+```
+
+
+
+
+
 修改 mongod.conf 配置文件，将db 路径指定到 mongo-2020-04-21，使用 mongod 恢复模式修复一把：
 
 ```bash
