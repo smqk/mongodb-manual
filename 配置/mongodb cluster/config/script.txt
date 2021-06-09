@@ -1,0 +1,137 @@
+The security.authorization setting is available only for mongod.
+https://docs.mongodb.com/v4.2/reference/configuration-options/#security-options
+
+启用授权在 config 节点配置即可。
+security:
+   authorization: enabled
+
+后期创建用户只需要在 mongos 中创建即可。
+
+
+
+
+use admin
+db.shutdownServer()
+
+mongo --port 26001
+mongo --port 27017
+
+
+
+
+mongo --port 26001
+var config = {
+    _id: "configServe",
+    members: [
+        {_id: 0, host: "mongodb01:26001"},
+        {_id: 1, host: "mongodb02:26001"},
+        {_id: 2, host: "mongodb10:26001"},
+    ]
+}
+rs.initiate(config)
+
+
+
+use admin
+db.createUser({
+  user: "root",
+  pwd: "c0s7shdShw720",
+  roles: [
+    {role: "root", db: "admin"}
+  ]
+})
+
+db.auth("root", "c0s7shdShw720")
+
+mongo --host mongodb01 --port 27017 --username root --password c0s7shdShw720 --authenticationDatabase admin
+mongo --host mongodb02 --port 27017 --username root --password c0s7shdShw720 --authenticationDatabase admin
+
+
+sh.addShard("shard01/mongodb01:27000,shard02/mongodb03:27000")
+
+
+
+=================================
+mongo --port 27000
+var config = {
+    _id: "shard01",
+    members: [
+        {_id: 0, host: "mongodb03:27000"},
+        {_id: 1, host: "mongodb04:27000"},
+        {_id: 2, host: "mongodb10:27001",arbiterOnly:true},
+    ]
+}
+rs.initiate(config)
+use admin
+db.createUser({
+  user: "root",
+  pwd: "c0s7shdShw720",
+  roles: [
+    {role: "root", db: "admin"}
+  ]
+})
+
+
+
+
+
+=================================
+mongo --port 27000
+var config = {
+    _id: "shard02",
+    members: [
+        {_id: 0, host: "mongodb05:27000"},
+        {_id: 1, host: "mongodb06:27000"},
+        {_id: 2, host: "mongodb10:27002",arbiterOnly:true},
+    ]
+}
+rs.initiate(config)
+use admin
+db.createUser({
+  user: "root",
+  pwd: "c0s7shdShw720",
+  roles: [
+    {role: "root", db: "admin"}
+  ]
+})
+
+
+===================================
+rs.remove("mongodb10:27001")
+rs.add('mongodb10:27001')
+rs.addArb('mongodb10:27001')
+
+
+
+rs.remove("mongodb10:26001")
+rs.add('mongodb10:26001')
+rs.addArb('mongodb10:26001')
+
+
+config 节点没有仲裁的说法。
+configServe:PRIMARY> rs.addArb('mongodb10:26001')
+{
+	"operationTime" : Timestamp(1597665985, 1),
+	"ok" : 0,
+	"errmsg" : "Arbiters are not allowed in replica set configurations being used for config servers",
+	"code" : 103,
+	"codeName" : "NewReplicaSetConfigurationIncompatible",
+	"$gleStats" : {
+		"lastOpTime" : {
+			"ts" : Timestamp(1597665973, 1),
+			"t" : NumberLong(1)
+		},
+		"electionId" : ObjectId("7fffffff0000000000000001")
+	},
+	"lastCommittedOpTime" : Timestamp(1597665985, 1),
+	"$clusterTime" : {
+		"clusterTime" : Timestamp(1597665985, 1),
+		"signature" : {
+			"hash" : BinData(0,"AAAAAAAAAAAAAAAAAAAAAAAAAAA="),
+			"keyId" : NumberLong(0)
+		}
+	}
+}
+
+
+

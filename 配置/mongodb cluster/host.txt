@@ -1,0 +1,52 @@
+sudo mkdir -p /var/mongodb/db
+####
+ssh -i id_rsa opsgod@35.220.225.80 -p55888   
+csrs_1.conf	mongodb01	26001
+mongos_1.conf	mongodb01	27017
+
+
+ssh -i id_rsa opsgod@35.220.235.134 -p55888  
+csrs_2.conf	mongodb02	26001
+mongos_2.conf	mongodb02	27017
+
+
+ssh -i id_rsa opsgod@34.92.197.207 -p55888	mongodb03
+mongod_1.conf	mongodb03	27000
+
+
+ssh -i id_rsa opsgod@34.92.228.239 -p55888	mongodb04
+mongod_2.conf	mongodb04	27000
+
+
+ssh -i id_rsa opsgod@34.92.240.63 -p55888	mongodb05
+mongod_3.conf	mongodb05	27000
+
+
+ssh -i id_rsa opsgod@35.241.119.195 -p55888	mongodb06
+mongod_4.conf	mongodb06	27000
+
+
+ssh -i id_rsa opsgod@34.92.231.130 -p55888	mongodb10
+csrs_3.conf	mongodb10	26001
+mongod_shard01.conf	mongodb10	27001	arbiter
+mongod_shard02.conf	mongodb10	27002	arbiter
+mongos_3.conf		mongodb10	27017
+
+
+
+
+
+账户：opsgod
+远程端口：55888
+切换至root：sudo -s
+ 
+
+SOFTLAYER  14:53:25
+35.220.225.80  10.170.0.149 mongodb01.prod.hk.gcp.flygram   mongos config(主)
+35.220.235.134 10.170.0.143 mongodb02.prod.hk.gcp.flygram   mongos config(从)
+34.92.197.207  10.170.0.144 mongodb03.prod.hk.gcp.flygram   shard01(主)
+34.92.228.239  10.170.0.145 mongodb04.prod.hk.gcp.flygram   shard01(从)
+34.92.240.63   10.170.0.146 mongodb05.prod.hk.gcp.flygram   shard02(主)
+35.241.119.195 10.170.0.147 mongodb06.prod.hk.gcp.flygram   shard02(从)
+34.92.231.130  10.170.0.151 mongodb10.prod.hk.gcp.flygram   shard01(仲裁) shard02(仲裁) mongos config(仲裁)  
+
